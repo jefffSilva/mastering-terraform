@@ -47,7 +47,7 @@ resource "google_secret_manager_secret_version" "secret-version-basic" {
   apiVersion: v1
   metadata:
     name: redis-gke-secret
-    namespace: collection
+    namespace: client1
   data:
     ${var.key}: ${base64encode(var.value)}
   EOF      

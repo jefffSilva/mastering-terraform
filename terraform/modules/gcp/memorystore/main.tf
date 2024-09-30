@@ -23,7 +23,7 @@ locals {
 }
 
 data "google_compute_network" "redis-network" {
-  name = "collection-client-vpc-${var.environment_sufix}" 
+  name = "client1-client-vpc-${var.environment_sufix}" 
 }
 
 resource "google_redis_instance" "cache" {
@@ -41,7 +41,7 @@ resource "google_redis_instance" "cache" {
 
 resource "google_compute_firewall" "allow-redis-egress-to-everything" {
   name    = "allow-redis-egress-to-everything"
-  network = "collection-client-vpc-${var.environment_sufix}"
+  network = "client1-client-vpc-${var.environment_sufix}"
   
   destination_ranges = ["${var.google_managed_range}/${var.google_managed_length}"]
   direction          = "EGRESS"

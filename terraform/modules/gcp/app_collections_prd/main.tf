@@ -168,7 +168,7 @@ YAML
 ###
 # Graphql
 data "kubectl_path_documents" "backendconfig_graphql" {
-  pattern = "../../../../../kubernetes/collection/backendconfig/backendconfig.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/backendconfig/backendconfig.generic.yaml"
   vars = {
     namespace            = kubectl_manifest.namespace.name
     name                 = "graphql-backendconfig"
@@ -182,7 +182,7 @@ resource "kubectl_manifest" "backendconfig_graphql" {
 
 # Frontend
 data "kubectl_path_documents" "backendconfig_frontend" {
-  pattern = "../../../../../kubernetes/collection/backendconfig/backendconfig.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/backendconfig/backendconfig.generic.yaml"
   vars = {
     namespace            = kubectl_manifest.namespace.name
     name                 = "frontend-backendconfig"
@@ -199,7 +199,7 @@ resource "kubectl_manifest" "backendconfig_frontend" {
 ###
 # Graphql
 data "kubectl_path_documents" "service_graphql" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "graphql-svc"
@@ -215,7 +215,7 @@ resource "kubectl_manifest" "service_graphql" {
 
 # Adapter
 data "kubectl_path_documents" "service_adapter" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "adapter-svc"
@@ -231,7 +231,7 @@ resource "kubectl_manifest" "service_adapter" {
 
 # Contestations API
 data "kubectl_path_documents" "service_contestations_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "contestations-api-svc"
@@ -247,7 +247,7 @@ resource "kubectl_manifest" "service_contestations_api" {
 
 # Customer API
 data "kubectl_path_documents" "service_customer_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "customer-api-svc"
@@ -263,7 +263,7 @@ resource "kubectl_manifest" "service_customer_api" {
 
 # Debts API
 data "kubectl_path_documents" "service_debts_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "debts-api-svc"
@@ -279,7 +279,7 @@ resource "kubectl_manifest" "service_debts_api" {
 
 # Domains API
 data "kubectl_path_documents" "service_domains_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "domains-api-svc"
@@ -295,7 +295,7 @@ resource "kubectl_manifest" "service_domains_api" {
 
 # Offers API
 data "kubectl_path_documents" "service_offers_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "offers-api-svc"
@@ -311,7 +311,7 @@ resource "kubectl_manifest" "service_offers_api" {
 
 # Companies API
 data "kubectl_path_documents" "service_companies_api" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "companies-api-svc"
@@ -327,7 +327,7 @@ resource "kubectl_manifest" "service_companies_api" {
 
 # Front WS
 data "kubectl_path_documents" "service_front_ws" {
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "front-ws-svc"
@@ -344,7 +344,7 @@ resource "kubectl_manifest" "service_front_ws" {
 # Front Storybook
 data "kubectl_path_documents" "service_front_storybook" {
   count = (var.enable_storybook) ? 1 : 0
-  pattern = "../../../../../kubernetes/collection/service/service.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/service/service.generic.yaml"
   vars = {
     namespace     = kubectl_manifest.namespace.name
     name          = "front-storybook-svc"
@@ -364,10 +364,10 @@ resource "kubectl_manifest" "service_front_storybook" {
 ###
 # API
 data "kubectl_path_documents" "managedcertificate_api" {
-  pattern = "../../../../../kubernetes/collection/managedcertificate/managedcertificate.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/managedcertificate/managedcertificate.generic.yaml"
   vars = {
     namespace = kubectl_manifest.namespace.name
-    name      = "collection-api-cert"
+    name      = "client1-api-cert"
     hostname  = var.api_hostname
   }
 }
@@ -377,10 +377,10 @@ resource "kubectl_manifest" "managedcertificate_api" {
 
 # Portal
 data "kubectl_path_documents" "managedcertificate_portal" {
-  pattern = "../../../../../kubernetes/collection/managedcertificate/managedcertificate.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/managedcertificate/managedcertificate.generic.yaml"
   vars = {
     namespace = kubectl_manifest.namespace.name
-    name      = "collection-portal-cert"
+    name      = "client1-portal-cert"
     hostname  = var.portal_hostname
   }
 }
@@ -391,10 +391,10 @@ resource "kubectl_manifest" "managedcertificate_portal" {
 # Storybook
 data "kubectl_path_documents" "managedcertificate_storybook" {
   count = (var.enable_storybook) ? 1 : 0
-  pattern = "../../../../../kubernetes/collection/managedcertificate/managedcertificate.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/managedcertificate/managedcertificate.generic.yaml"
   vars = {
     namespace = kubectl_manifest.namespace.name
-    name      = "collection-storybook-cert"
+    name      = "client1-storybook-cert"
     hostname  = var.storybook_hostname
   }
 }
@@ -407,10 +407,10 @@ resource "kubectl_manifest" "managedcertificate_storybook" {
 ### Frontend Config
 ###
 data "kubectl_path_documents" "frontendconfig" {
-  pattern = "../../../../../kubernetes/collection/frontendconfig/frontendconfig.generic.yaml"
+  pattern = "../../../../../kubernetes/client1/frontendconfig/frontendconfig.generic.yaml"
   vars = {
     namespace = kubectl_manifest.namespace.name
-    name      = "collection-frontendconfig"
+    name      = "client1-frontendconfig"
   }
 }
 resource "kubectl_manifest" "frontendconfig" {
@@ -424,12 +424,12 @@ locals {
   managed_certificate_portal = "${kubectl_manifest.managedcertificate_portal.name}"
 }
 
-data "kubectl_path_documents" "ingress_collection_prd_portal" {
+data "kubectl_path_documents" "ingress_client1_prd_portal" {
   
-  pattern = "../../../../../kubernetes/collection/ingress/collection-ingress-oneHost.yaml"
+  pattern = "../../../../../kubernetes/client1/ingress/client1-ingress-oneHost.yaml"
   vars = {
     namespace                = kubectl_manifest.namespace.name
-    global_static_ip_name    = "lb-collection-prd"
+    global_static_ip_name    = "lb-client1-prd"
     managed_certificate_name = local.managed_certificate_portal
     frontend_config_name     = kubectl_manifest.frontendconfig.name
     prd_hostname             = var.portal_hostname
@@ -437,6 +437,6 @@ data "kubectl_path_documents" "ingress_collection_prd_portal" {
 
   }
 }
-resource "kubectl_manifest" "ingress_collection_prd_portal" {
-  yaml_body = data.kubectl_path_documents.ingress_collection_prd_portal.documents[0]
+resource "kubectl_manifest" "ingress_client1_prd_portal" {
+  yaml_body = data.kubectl_path_documents.ingress_client1_prd_portal.documents[0]
 }
