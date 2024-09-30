@@ -1,0 +1,15 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  namespace: ${namespace}
+  name: ${name}
+spec:
+  healthCheck:
+    checkIntervalSec: 15
+    timeoutSec: 10
+    type: HTTP
+    requestPath: ${health_check_path}
+%{ if security_policy_name != "" }
+  securityPolicy:
+    name: "${security_policy_name}"
+%{ endif }

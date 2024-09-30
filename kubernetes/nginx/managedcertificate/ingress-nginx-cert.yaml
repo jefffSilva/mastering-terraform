@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  namespace: ${namespace}
+  name: ingress-nginx-cert
+spec:
+  domains:
+    - ${api_hostname}
